@@ -9,18 +9,44 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            VStack(alignment: .center) {
+                HStack {
+                    GlobeImage()
+                    GlobeImage()
+                    GlobeImage()
+                }
+                Text("Hello, Pure Native!")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+//                    .foregroundColor(.red)
+            }
+            .foregroundColor(.orange)
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(lineWidth: 5)
+                .foregroundColor(.orange)
+                .padding(.horizontal)
         }
-        .padding()
+        .padding(.vertical)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+//func GlobeImage () -> some View {
+//    return Image(systemName: "globe")
+//        .imageScale(.large)
+//        .foregroundColor(.accentColor)
+//}
+
+struct GlobeImage: View {
+    var body: some View {
+        Image(systemName: "globe")
+            .imageScale(.large)
+            .foregroundColor(.accentColor)
     }
 }
